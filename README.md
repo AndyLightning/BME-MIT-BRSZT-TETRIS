@@ -1,0 +1,2 @@
+# BME-MIT-BRSZT-TETRIS
+Éljen az IIT!
