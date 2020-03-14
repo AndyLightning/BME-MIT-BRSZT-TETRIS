@@ -5,8 +5,10 @@ Egy játékosnak a tömbje 10 blokk széles, és 24 blokk magas. Két játékosu
 Ergo a megbeszéltek alapján két 2D int-es tömböt foglalunk le, a fenti dimenziók szerint.
 
 Az int értékek alapján legyen:
+
   0: Üres
-  1: Piros
+  
+  1: Piros //
   2: Narancssárga
   3: Sárga
   4: Zöld
