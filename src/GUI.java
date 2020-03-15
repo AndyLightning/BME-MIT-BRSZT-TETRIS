@@ -15,9 +15,11 @@ public class GUI extends JFrame {
 
     int[][] playerZone = new int[24][10];
 
+
+
     public GUI() throws IOException {
         this.setTitle("Tetris");
-        this.setSize(650, 754);
+        this.setSize(650, 750);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setResizable(false);
@@ -31,7 +33,19 @@ public class GUI extends JFrame {
         Click click = new Click();
         this.addMouseListener(click);
 
+        red = ImageIO.read(new File("img/Red.png"));
+        orange = ImageIO.read(new File("img/Orange.png"));
+        yellow = ImageIO.read(new File("img/Yellow.png"));
         green = ImageIO.read(new File("img/Green.png"));
+        lblue = ImageIO.read(new File("img/LBlue.png"));
+        dblue = ImageIO.read(new File("img/DBlue.png"));
+        purple = ImageIO.read(new File("img/Purple.png"));
+
+        for (int i=0; i<10; i++) {
+            for (int j = 0; j < 24; j++) {
+                playerZone[j][i]=(j%8);
+            }
+        }
 
     }
 
@@ -42,13 +56,40 @@ public class GUI extends JFrame {
         public void paintComponent(Graphics g) {
             g.setColor(Color.lightGray);
             g.fillRect(0,0,640,720);
-            g.setColor(Color.DARK_GRAY);
+            g.setColor(Color.white);
+            g.fillRect(15,105,250,600);
+            g.setColor(Color.white);
             for (int i=0; i<10; i++) {
                 for (int j = 0; j < 24; j++) {
-                    g.fillRect(15 + i * (spacing + 20), j * (spacing + 20) + 105, 20, 20);
+                    switch (playerZone[j][i]){
+                        case 0:
+                            break;
+                        case 1:
+                            g.drawImage(red, 15 + i *25, j *25 + 105, this);
+                            break;
+                        case 2:
+                            g.drawImage(orange, 15 + i *25, j *25 + 105, this);
+                            break;
+                        case 3:
+                            g.drawImage(yellow, 15 + i *25, j *25 + 105, this);
+                            break;
+                        case 4:
+                            g.drawImage(green, 15 + i *25, j *25 + 105, this);
+                            break;
+                        case 5:
+                            g.drawImage(lblue, 15 + i *25, j *25 + 105, this);
+                            break;
+                        case 6:
+                            g.drawImage(dblue, 15 + i *25, j *25 + 105, this);
+                            break;
+                        case 7:
+                            g.drawImage(purple, 15 + i *25, j *25 + 105, this);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
-            g.drawImage(green, 0, 0, this);
         }
     }
     public class Move implements MouseMotionListener {
