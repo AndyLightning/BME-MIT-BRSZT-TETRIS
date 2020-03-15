@@ -9,7 +9,7 @@ public class GUI extends JFrame {
 
     public GUI() {
         this.setTitle("Tetris");
-        this.setSize(1316, 754);
+        this.setSize(650, 754);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setResizable(false);
@@ -29,7 +29,7 @@ public class GUI extends JFrame {
     public class Board extends JPanel {
         public void paintComponent(Graphics g) {
             g.setColor(Color.LIGHT_GRAY);
-            g.fillRect(0,0,1280,720);
+            g.fillRect(0,0,640,720);
             g.setColor(Color.DARK_GRAY);
             for (int i=0; i<10; i++)
                 for (int j=0; j<24;j++)
