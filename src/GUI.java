@@ -9,7 +9,7 @@ public class GUI extends JFrame {
 
     public GUI() {
         this.setTitle("Tetris");
-        this.setSize(1295, 754);
+        this.setSize(1316, 754);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setResizable(false);
