@@ -7,6 +7,8 @@ public class GUI extends JFrame {
     boolean Multi;
     int spacing=5;
 
+    int[][] playerZone = new int[24][10];
+
     public GUI() {
         this.setTitle("Tetris");
         this.setSize(650, 754);
