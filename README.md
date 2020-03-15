@@ -15,3 +15,5 @@ Az int értékek alapján legyen:
   6: Sötétkék  
   7: Lila  
 A specifikációl látható, melyik színhez milyen szabványméretű blokkok tartozzanak.
+
+A játékos int tömbje [24][10] dimenziójú.
