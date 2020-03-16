@@ -9,13 +9,20 @@ import java.awt.*;
 
 
 public class GUI extends JFrame {
+    private int screen=0;
+    public int getScreen() {
+        return screen;
+    }
+    public void setScreen(int num) {
+        screen=num;
+    }
     boolean Multi;
     int spacing = 5;
     BufferedImage red, orange, yellow, green, lblue, dblue, purple, logo;
-
     int[][] playerZone = new int[24][10];
     int mx=0;
     int my=0;
+
 
 
     public GUI() throws IOException {
@@ -35,7 +42,7 @@ public class GUI extends JFrame {
         }
         //Alapbeállítások
         this.setTitle("Tetris");
-        this.setSize(650, 750);
+        this.setSize(1290, 750);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setResizable(false);
@@ -49,7 +56,6 @@ public class GUI extends JFrame {
         Click click = new Click();
         this.addMouseListener(click);
 
-
     }
 
 
@@ -58,6 +64,20 @@ public class GUI extends JFrame {
         Image slogo = logo.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
 
         public void paintComponent(Graphics g) {
+            switch(screen) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                    break;
+            }
             g.setColor(Color.lightGray);
             g.fillRect(0,0,640,720);
             g.setColor(Color.white);
@@ -66,7 +86,7 @@ public class GUI extends JFrame {
             g.drawImage(slogo, 400, 600, this);
             for (int i=0; i<10; i++) {
                 for (int j = 0; j < 24; j++) {
-                    if(mx >= 15 + i *25 && mx < 40 + i *25 && my >= j *25 + 105 && my < j *25 + 130) {
+                    if(mx >= 22 + i *25 && mx < 47 + i *25 && my >= j *25 + 135 && my < j *25 + 160) {  //Szarul néznek ki a számok, de itt ez van...
                         g.drawImage(slogo, 15 + i *25, j *25 + 105, this);
                         continue;
                     }
