@@ -22,9 +22,6 @@ public class GUI extends JFrame {
     int[][] playerZone = new int[24][10];
     int mx=0;
     int my=0;
-    int felvetel=419;
-    int gyakorlat=111;
-    int hal=11;
 
     public GUI() throws IOException {
         //Blokkok megteremtése
@@ -57,7 +54,6 @@ public class GUI extends JFrame {
         Click click = new Click();
         this.addMouseListener(click);
 
-        JTextField text = new JTextField(30);
 
     }
 
@@ -66,7 +62,9 @@ public class GUI extends JFrame {
         //Trollkodás
         Image slogo = logo.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
 
+
         public void paintComponent(Graphics g) {
+
             switch(2) {
                 case 0:
                     GUI.this.setSize(650, 750);
@@ -74,6 +72,7 @@ public class GUI extends JFrame {
                 case 1:
                     break;
                 case 2:
+                    JTextField text = new JTextField(30);
                     GUI.this.setSize(650, 750);
                     g.setColor(Color.lightGray);
                     g.fillRect(0,0,640,720);
