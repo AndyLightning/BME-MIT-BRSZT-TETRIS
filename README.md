@@ -17,3 +17,12 @@ Az int értékek alapján legyen:
 A specifikációl látható, melyik színhez milyen szabványméretű blokkok tartozzanak.
 
 A játékos int tömbje [24][10] dimenziójú.
+
+Annak függvényében, hogy melyik képernyőn vagyunk éppen, várok a GUI-hoz egy getter függvényt, ami visszaad egy int-et;
+  
+  0: Belépő Screen  
+  1: Menü  
+  2: Single  
+  3: Multi  
+  4: Highscore  
+  
