@@ -22,7 +22,7 @@ public class GUI extends JFrame {
     int[][] playerZone = new int[24][10];
     int mx=0;
     int my=0;
-
+    int felvetel=419;
 
 
     public GUI() throws IOException {
