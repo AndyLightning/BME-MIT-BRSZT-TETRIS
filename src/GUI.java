@@ -11,13 +11,29 @@ import java.awt.*;
 public class GUI extends JFrame {
     boolean Multi;
     int spacing = 5;
-    BufferedImage red, orange, yellow, green, lblue, dblue, purple;
+    BufferedImage red, orange, yellow, green, lblue, dblue, purple, logo;
 
     int[][] playerZone = new int[24][10];
-
+    int mx=0;
+    int my=0;
 
 
     public GUI() throws IOException {
+        //Blokkok megteremtése
+        red = ImageIO.read(new File("img/Red.png"));
+        orange = ImageIO.read(new File("img/Orange.png"));
+        yellow = ImageIO.read(new File("img/Yellow.png"));
+        green = ImageIO.read(new File("img/Green.png"));
+        lblue = ImageIO.read(new File("img/LBlue.png"));
+        dblue = ImageIO.read(new File("img/DBlue.png"));
+        purple = ImageIO.read(new File("img/Purple.png"));
+        logo = ImageIO.read(new File("img/IIT.png"));
+        for (int i=0; i<10; i++) {
+            for (int j = 0; j < 24; j++) {
+                playerZone[j][i]=(j%8);
+            }
+        }
+        //Alapbeállítások
         this.setTitle("Tetris");
         this.setSize(650, 750);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,25 +49,13 @@ public class GUI extends JFrame {
         Click click = new Click();
         this.addMouseListener(click);
 
-        red = ImageIO.read(new File("img/Red.png"));
-        orange = ImageIO.read(new File("img/Orange.png"));
-        yellow = ImageIO.read(new File("img/Yellow.png"));
-        green = ImageIO.read(new File("img/Green.png"));
-        lblue = ImageIO.read(new File("img/LBlue.png"));
-        dblue = ImageIO.read(new File("img/DBlue.png"));
-        purple = ImageIO.read(new File("img/Purple.png"));
-
-        for (int i=0; i<10; i++) {
-            for (int j = 0; j < 24; j++) {
-                playerZone[j][i]=(j%8);
-            }
-        }
 
     }
 
 
     public class Board extends JPanel {
-
+        //Trollkodás
+        Image slogo = logo.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
 
         public void paintComponent(Graphics g) {
             g.setColor(Color.lightGray);
@@ -59,8 +63,13 @@ public class GUI extends JFrame {
             g.setColor(Color.white);
             g.fillRect(15,105,250,600);
             g.setColor(Color.white);
+            g.drawImage(slogo, 400, 600, this);
             for (int i=0; i<10; i++) {
                 for (int j = 0; j < 24; j++) {
+                    if(mx >= 15 + i *25 && mx < 40 + i *25 && my >= j *25 + 105 && my < j *25 + 130) {
+                        g.drawImage(slogo, 15 + i *25, j *25 + 105, this);
+                        continue;
+                    }
                     switch (playerZone[j][i]){
                         case 0:
                             break;
@@ -100,7 +109,9 @@ public class GUI extends JFrame {
         @Override
         public void mouseMoved(MouseEvent e) {
             System.out.println("Mozgott az Egér");
-            System.out.println("x: " + e.getX() + ", y: " + e.getY());
+            mx=e.getX();
+            my=e.getY();
+            System.out.println("x: " + mx + ", y: " + my);
         }
     }
 

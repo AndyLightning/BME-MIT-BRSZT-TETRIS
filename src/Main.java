@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.TimerTask;
 
 public class Main implements Runnable{
 
@@ -9,10 +10,21 @@ public class Main implements Runnable{
         new Thread(new Main()).start();
 
     }
-    @Override
-    public void run(){
-        gui.repaint();
-    }
+
+
+
+        @Override
+        public void run() {
+            while (true) {
+                gui.repaint();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
 
 
     public Main() throws IOException {
