@@ -23,6 +23,7 @@ public class GUI extends JFrame {
     int mx=0;
     int my=0;
     int felvetel=419;
+    int gyakorlat=111;
 
 
     public GUI() throws IOException {
