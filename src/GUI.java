@@ -23,8 +23,6 @@ public class GUI extends JFrame {
     int mx=0;
     int my=0;
 
-
-
     public GUI() throws IOException {
         //Blokkok megteremtése
         red = ImageIO.read(new File("img/Red.png"));
@@ -56,6 +54,11 @@ public class GUI extends JFrame {
         Click click = new Click();
         this.addMouseListener(click);
 
+        JTextField text = new JTextField("basic");
+        this.add(text);
+        text.setBounds(100, 100, 300, 30);
+
+
     }
 
 
@@ -63,62 +66,68 @@ public class GUI extends JFrame {
         //Trollkodás
         Image slogo = logo.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
 
+
         public void paintComponent(Graphics g) {
-            switch(screen) {
+            switch(2) {
                 case 0:
+                    GUI.this.setSize(650, 750);
                     break;
                 case 1:
                     break;
                 case 2:
+
+                    GUI.this.setSize(650, 750);
+                    g.setColor(Color.lightGray);
+                    g.fillRect(0,0,640,720);
+                    g.setColor(Color.white);
+                    g.fillRect(15,105,250,600);
+                    g.setColor(Color.white);
+                    g.drawImage(slogo, 400, 600, this);
+                    for (int i=0; i<10; i++) {
+                        for (int j = 0; j < 24; j++) {
+                            if(mx >= 22 + i *25 && mx < 47 + i *25 && my >= j *25 + 135 && my < j *25 + 160) {  //Szarul néznek ki a számok, de itt ez van...
+                                g.drawImage(slogo, 15 + i *25, j *25 + 105, this);
+                                continue;
+                            }
+                            switch (playerZone[j][i]){
+                                case 0:
+                                    break;
+                                case 1:
+                                    g.drawImage(red, 15 + i *25, j *25 + 105, this);
+                                    break;
+                                case 2:
+                                    g.drawImage(orange, 15 + i *25, j *25 + 105, this);
+                                    break;
+                                case 3:
+                                    g.drawImage(yellow, 15 + i *25, j *25 + 105, this);
+                                    break;
+                                case 4:
+                                    g.drawImage(green, 15 + i *25, j *25 + 105, this);
+                                    break;
+                                case 5:
+                                    g.drawImage(lblue, 15 + i *25, j *25 + 105, this);
+                                    break;
+                                case 6:
+                                    g.drawImage(dblue, 15 + i *25, j *25 + 105, this);
+                                    break;
+                                case 7:
+                                    g.drawImage(purple, 15 + i *25, j *25 + 105, this);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
                     break;
                 case 3:
+                    GUI.this.setSize(1290, 750);
                     break;
                 case 4:
                     break;
                 default:
                     break;
             }
-            g.setColor(Color.lightGray);
-            g.fillRect(0,0,640,720);
-            g.setColor(Color.white);
-            g.fillRect(15,105,250,600);
-            g.setColor(Color.white);
-            g.drawImage(slogo, 400, 600, this);
-            for (int i=0; i<10; i++) {
-                for (int j = 0; j < 24; j++) {
-                    if(mx >= 22 + i *25 && mx < 47 + i *25 && my >= j *25 + 135 && my < j *25 + 160) {  //Szarul néznek ki a számok, de itt ez van...
-                        g.drawImage(slogo, 15 + i *25, j *25 + 105, this);
-                        continue;
-                    }
-                    switch (playerZone[j][i]){
-                        case 0:
-                            break;
-                        case 1:
-                            g.drawImage(red, 15 + i *25, j *25 + 105, this);
-                            break;
-                        case 2:
-                            g.drawImage(orange, 15 + i *25, j *25 + 105, this);
-                            break;
-                        case 3:
-                            g.drawImage(yellow, 15 + i *25, j *25 + 105, this);
-                            break;
-                        case 4:
-                            g.drawImage(green, 15 + i *25, j *25 + 105, this);
-                            break;
-                        case 5:
-                            g.drawImage(lblue, 15 + i *25, j *25 + 105, this);
-                            break;
-                        case 6:
-                            g.drawImage(dblue, 15 + i *25, j *25 + 105, this);
-                            break;
-                        case 7:
-                            g.drawImage(purple, 15 + i *25, j *25 + 105, this);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
+
         }
     }
     public class Move implements MouseMotionListener {
