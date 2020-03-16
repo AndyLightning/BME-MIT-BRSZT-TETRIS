@@ -54,6 +54,10 @@ public class GUI extends JFrame {
         Click click = new Click();
         this.addMouseListener(click);
 
+        JTextField text = new JTextField("basic");
+        this.add(text);
+        text.setBounds(100, 100, 300, 30);
+
 
     }
 
@@ -64,7 +68,6 @@ public class GUI extends JFrame {
 
 
         public void paintComponent(Graphics g) {
-
             switch(2) {
                 case 0:
                     GUI.this.setSize(650, 750);
@@ -72,7 +75,7 @@ public class GUI extends JFrame {
                 case 1:
                     break;
                 case 2:
-                    JTextField text = new JTextField(30);
+
                     GUI.this.setSize(650, 750);
                     g.setColor(Color.lightGray);
                     g.fillRect(0,0,640,720);
