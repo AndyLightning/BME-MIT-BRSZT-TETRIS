@@ -18,7 +18,7 @@ public class Main implements Runnable{
             while (true) {
                 gui.repaint();
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
