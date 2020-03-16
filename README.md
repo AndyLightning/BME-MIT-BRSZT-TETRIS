@@ -18,7 +18,7 @@ A specifikációl látható, melyik színhez milyen szabványméretű blokkok ta
 
 A játékos int tömbje [24][10] dimenziójú.
 
-Annak függvényében, hogy melyik képernyőn vagyunk éppen, várok a GUI-hoz egy getter függvényt, ami visszaad egy int-et;
+Annak függvényében, hogy melyik képernyőn vagyunk éppen, várok a GUI-hoz egy értéket, amit a .setScreen-el lehet beállítani (az alapértelmezett 0-t és kezdőképernyőt Én biztosítom);
   
   0: Belépő Screen  
   1: Menü  
