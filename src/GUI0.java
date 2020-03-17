@@ -6,11 +6,25 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.event.*;
 
-public class GUI0 {
-    int spacing = 5;
+public class GUI0 implements ActionListener {
+    boolean finished=false;
     int mx, my;
     JFrame frame = new JFrame();
+    Images img = new Images();
+    private JTextField text;
+    private JButton button;
+    private JLabel label1, label2, label3;
+    private String user;
 
+    public boolean getFinished() {
+        return finished;
+    }
+    public void resetFinished(){
+        finished=false;
+    }
+    public String getUser() {
+        return user;
+    }
 
     public GUI0() throws IOException {
         //Blokkok megteremtése
@@ -18,11 +32,14 @@ public class GUI0 {
 
         //Alapbeállítások
         frame.setTitle("Belépés");
-        frame.setSize(650, 750);
+        frame.setSize(650, 350);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(false);
+        frame.setVisible(true);
         frame.setResizable(false);
+        frame.setBackground(Color.lightGray);
+        frame.setIconImage(img.khazy);
 
+        frame.setLayout(null);
 
         Move move = new Move();
         frame.addMouseMotionListener(move);
@@ -32,24 +49,41 @@ public class GUI0 {
 
         Board board = new Board();
         frame.setContentPane(board);
-        placeComponents(board);
+        board.setLayout(null);
 
+        text = new JTextField(20);
+        text.setBounds(100,100,450,30);
+        board.add(text);
+
+        button = new JButton("Belépés!");
+        button.setBounds(275,150,100,25);
+        button.addActionListener(this);
+        board.add(button);
+
+        label1 = new JLabel("Kérlek add meg a felhasználónevedet!");
+        label1.setBounds(215,70,300,15);
+        board.add(label1);
+
+        label2 = new JLabel("Powered by");
+        label2.setBounds(290,190,300,15);
+        board.add(label2);
+
+        label3 = new JLabel("&");
+        label3.setBounds(320,240,15,15);
+        board.add(label3);
     }
+
+
+
 
     public class Board extends JPanel {
 
-    }
-
-    private static void placeComponents(JPanel panel) {
-        panel.setLayout(null);
-
-        JLabel label = new JLabel("Kérlek add meg a felhasználónevedet!");
-        label.setBounds(215,70,300,15);
-        panel.add(label);
-
-        JTextField text = new JTextField(20);
-        text.setBounds(100,100,450,30);
-        panel.add(text);
+        Image iit = img.iit.getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+        Image mit = img.mit.getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+        public void paintComponent(Graphics g) {
+            g.drawImage(mit, 250, 220, this);
+            g.drawImage(iit, 350, 220, this);
+        }
     }
 
 
@@ -93,5 +127,10 @@ public class GUI0 {
 
         }
     }
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        user = text.getText();
+        System.out.println(user);
+        finished=true;
+    }
 }
