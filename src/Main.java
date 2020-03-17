@@ -3,12 +3,12 @@ import java.util.TimerTask;
 
 public class Main implements Runnable{
 
-    GUI gui = new GUI();
+   //GUI gui = new GUI();
+   GUI0 gui2 = new GUI0();
 
 
     public static void main(String[] args) throws IOException {
         new Thread(new Main()).start();
-
     }
 
 
@@ -16,7 +16,10 @@ public class Main implements Runnable{
         @Override
         public void run() {
             while (true) {
-                gui.repaint();
+                //gui.repaint();
+                gui2.frame.setVisible(true);
+                gui2.frame.repaint();
+                //gui.dispose();
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException e) {

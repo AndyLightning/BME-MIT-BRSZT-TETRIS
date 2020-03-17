@@ -9,7 +9,7 @@ import java.awt.*;
 
 
 public class GUI extends JFrame {
-    private int screen=0;
+    private int screen=2;
     public int getScreen() {
         return screen;
     }
@@ -23,6 +23,10 @@ public class GUI extends JFrame {
     int mx=0;
     int my=0;
 
+    public boolean getMulti() {
+        return Multi;
+    }
+
     public GUI() throws IOException {
         //Blokkok megteremtése
         red = ImageIO.read(new File("img/Red.png"));
@@ -33,7 +37,7 @@ public class GUI extends JFrame {
         dblue = ImageIO.read(new File("img/DBlue.png"));
         purple = ImageIO.read(new File("img/Purple.png"));
         logo = ImageIO.read(new File("img/IIT.png"));
-        mit = ImageIO.read(new File("img/MIT.png"));
+       // mit = ImageIO.read(new File("img/MIT.png"));
         for (int i=0; i<10; i++) {
             for (int j = 0; j < 24; j++) {
                 playerZone[j][i]=(j%8);
@@ -55,28 +59,25 @@ public class GUI extends JFrame {
         Click click = new Click();
         this.addMouseListener(click);
 
-        JTextField text = new JTextField("basic");
-        this.add(text);
-        text.setBounds(100, 100, 300, 30);
-
 
     }
 
 
     public class Board extends JPanel {
         //Trollkodás
-        Image slogo = mit.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-
+        Image slogo = logo.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        //JTextField text = new JTextField();
 
         public void paintComponent(Graphics g) {
-            switch(2) {
+            switch(screen) {
                 case 0:
                     GUI.this.setSize(650, 750);
+                    //this.add(text);
+                    //text.setBounds(100, 100, 300, 30);
                     break;
                 case 1:
                     break;
                 case 2:
-
                     GUI.this.setSize(650, 750);
                     g.setColor(Color.lightGray);
                     g.fillRect(0,0,640,720);
