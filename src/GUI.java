@@ -18,7 +18,7 @@ public class GUI extends JFrame {
     }
     boolean Multi;
     int spacing = 5;
-    BufferedImage red, orange, yellow, green, lblue, dblue, purple, logo;
+    BufferedImage red, orange, yellow, green, lblue, dblue, purple, logo, mit;
     int[][] playerZone = new int[24][10];
     int mx=0;
     int my=0;
@@ -33,6 +33,7 @@ public class GUI extends JFrame {
         dblue = ImageIO.read(new File("img/DBlue.png"));
         purple = ImageIO.read(new File("img/Purple.png"));
         logo = ImageIO.read(new File("img/IIT.png"));
+        mit = ImageIO.read(new File("img/MIT.png"));
         for (int i=0; i<10; i++) {
             for (int j = 0; j < 24; j++) {
                 playerZone[j][i]=(j%8);
@@ -64,7 +65,7 @@ public class GUI extends JFrame {
 
     public class Board extends JPanel {
         //Trollkodás
-        Image slogo = logo.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        Image slogo = mit.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
 
 
         public void paintComponent(Graphics g) {
