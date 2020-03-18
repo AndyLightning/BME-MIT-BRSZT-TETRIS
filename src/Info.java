@@ -1,6 +1,9 @@
+import java.awt.*;
+
 public class Info {
     private int screen=0;
     private String user;
+    private Font font = new Font("Dialog", Font.BOLD,12);
     public void setScreen(int i) {
         screen=i;
     }
@@ -13,4 +16,6 @@ public class Info {
     public String getUser(){
         return user;
     }
+    public Font getFont() { return font; }
+
 }
