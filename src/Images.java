@@ -8,7 +8,7 @@ import java.util.*;
 import java.awt.*;
 
 public class Images{
-        BufferedImage red, orange, yellow, green, lblue, dblue, purple, iit, mit, khazy;
+        BufferedImage red, orange, yellow, green, lblue, dblue, purple, iit, mit, khazy, n1, n2, n3, n4, n5, n6, n7;
 
         public Images() throws IOException {
             red = ImageIO.read(new File("img/Red.png"));
@@ -21,6 +21,13 @@ public class Images{
             iit = ImageIO.read(new File("img/IIT.png"));
             mit = ImageIO.read(new File("img/MIT.png"));
             khazy = ImageIO.read(new File("img/khazy.jpg"));
+            n1 = ImageIO.read(new File("img/N1.png"));
+            n2 = ImageIO.read(new File("img/N2.png"));
+            n3 = ImageIO.read(new File("img/N3.png"));
+            n4 = ImageIO.read(new File("img/N4.png"));
+            n5 = ImageIO.read(new File("img/N5.png"));
+            n6 = ImageIO.read(new File("img/N6.png"));
+            n7 = ImageIO.read(new File("img/N7.png"));
         }
 
 }

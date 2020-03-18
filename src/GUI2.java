@@ -17,6 +17,12 @@ public class GUI2 {
     int my=0;
     JFrame frame = new JFrame();
     private int nextObject;
+    private Font font;
+
+
+    public void setFont(Font param){
+        font=param;
+    }
 
     public void setNextObject (int num) {
         nextObject=num;
@@ -64,14 +70,44 @@ public class GUI2 {
         Image lblue = img.lblue.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         Image dblue = img.dblue.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         Image purple = img.purple.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        Image n1 = img.n1.getScaledInstance(75, 110, Image.SCALE_DEFAULT);
+        Image n2 = img.n2.getScaledInstance(100, 80, Image.SCALE_DEFAULT);
+        Image n3 = img.n3.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        Image n4 = img.n4.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        Image n5 = img.n5.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        Image n6 = img.n6.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        Image n7 = img.n7.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         public void paintComponent(Graphics g) {
                     g.setColor(Color.lightGray);
                     g.fillRect(15,105,250,600);
+                    g.setColor(Color.black);
+                    g.setFont(font);
+                    g.drawString("Következő blokk:", 420, 50);
+                    switch (nextObject) {
+                        case 1:
+                            g.drawImage(n1, 430, 70, this);
+                            break;
+                        case 2:
+                            g.drawImage(n2, 422, 70, this);
+                            break;
+                        case 3:
+                            g.drawImage(n3, 430, 70, this);
+                            break;
+                        case 4:
+                            g.drawImage(n4, 430, 70, this);
+                            break;
+                        case 5:
+                            g.drawImage(n5, 430, 70, this);
+                            break;
+                        case 6:
+                            g.drawImage(n6, 430, 70, this);
+                            break;
+                        case 7:
+                            g.drawImage(n7, 430, 70, this);
+                            break;
+                    }
                     for (int i=0; i<10; i++) {
                         for (int j = 0; j < 24; j++) {
-                            if(mx >= 22 + i *25 && mx < 47 + i *25 && my >= j *25 + 135 && my < j *25 + 160) {  //Szarul néznek ki a számok, de itt ez van...
-                                continue;
-                            }
                             switch (playerZone[j][i]){
                                 case 0:
                                     break;

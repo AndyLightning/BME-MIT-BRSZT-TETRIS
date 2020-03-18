@@ -6,7 +6,7 @@ public class Info {
     private Font font = new Font("Dialog", Font.BOLD,12);
     private int[][] playerZone = new int[24][10];
     private int[][] opponentZone = new int[24][10];
-    private int nextObject;
+    private int nextObject=2;
 
     public void setScreen(int i) {
         screen=i;

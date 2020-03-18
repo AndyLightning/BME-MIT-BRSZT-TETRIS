@@ -40,12 +40,14 @@ public class Main implements Runnable{
                         if(gui1.getRequestScreen() != 0) {
                             gui1.frame.dispose();
                             info.setScreen(gui1.getRequestScreen());
+                            gui2.setFont(info.getFont());
                             gui2.frame.setVisible(true);
                         }
                         break;
                     case 2:
                         gui2.frame.repaint();
                         gui2.setZone(info.getPlayerZone());
+                        gui2.setNextObject(info.getNextObject());
                         break;
                     case 3:
                         System.out.println(info.getScreen());
