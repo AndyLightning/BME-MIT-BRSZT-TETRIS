@@ -16,6 +16,11 @@ public class GUI2 {
     int mx=0;
     int my=0;
     JFrame frame = new JFrame();
+    private int nextObject;
+
+    public void setNextObject (int num) {
+        nextObject=num;
+    }
 
     public void setZone(int[][] zone) {
         playerZone=zone;
@@ -31,8 +36,9 @@ public class GUI2 {
 
         //Alapbeállítások
         frame.setTitle("Tetris");
-        frame.setSize(1290, 750);
+        frame.setSize(650, 750);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setBackground(Color.WHITE);
         frame.setVisible(false);
         frame.setResizable(false);
 
@@ -50,7 +56,7 @@ public class GUI2 {
 
 
     public class Board extends JPanel {
-        //Trollkodás
+        //Képek beolvasása
         Image red = img.red.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         Image orange = img.orange.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         Image yellow = img.yellow.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
@@ -59,12 +65,8 @@ public class GUI2 {
         Image dblue = img.dblue.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         Image purple = img.purple.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         public void paintComponent(Graphics g) {
-                    frame.setSize(650, 750);
                     g.setColor(Color.lightGray);
-                    g.fillRect(0,0,640,720);
-                    g.setColor(Color.white);
                     g.fillRect(15,105,250,600);
-                    g.setColor(Color.white);
                     for (int i=0; i<10; i++) {
                         for (int j = 0; j < 24; j++) {
                             if(mx >= 22 + i *25 && mx < 47 + i *25 && my >= j *25 + 135 && my < j *25 + 160) {  //Szarul néznek ki a számok, de itt ez van...

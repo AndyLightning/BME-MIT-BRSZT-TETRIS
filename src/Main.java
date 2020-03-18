@@ -44,8 +44,8 @@ public class Main implements Runnable{
                         }
                         break;
                     case 2:
-                       // gui.repaint();
-                        System.out.println(info.getScreen());
+                        gui2.frame.repaint();
+                        gui2.setZone(info.getPlayerZone());
                         break;
                     case 3:
                         System.out.println(info.getScreen());
