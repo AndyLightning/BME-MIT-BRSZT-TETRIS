@@ -5,6 +5,7 @@ public class Main implements Runnable{
     GUI gui = new GUI();
     GUI0 gui0 = new GUI0();
     GUI1 gui1 = new GUI1();
+    GUI2 gui2 = new GUI2();
     Info info = new Info();
 
 
@@ -37,7 +38,9 @@ public class Main implements Runnable{
 
                         //Kijelzőváltás
                         if(gui1.getRequestScreen() != 0) {
+                            gui1.frame.dispose();
                             info.setScreen(gui1.getRequestScreen());
+                            gui2.frame.setVisible(true);
                         }
                         break;
                     case 2:
