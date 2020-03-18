@@ -17,6 +17,10 @@ public class GUI2 {
     int my=0;
     JFrame frame = new JFrame();
 
+    public void setZone(int[][] zone) {
+        playerZone=zone;
+    }
+
     public GUI2() throws IOException {
         //Blokkok megteremtése
         for (int i=0; i<10; i++) {
