@@ -16,7 +16,6 @@ public class GUI1 implements ActionListener {
     private JLabel label1, label2;
     private String user;
     private Font font;
-    private String fun= "Készítették:" + "\r\n" + "Dudás András" + "\r\n" + "Hartung Júlia" + "\r\n" + "Kenyeres Gábor Norbert";
 
 
     public void setFont(Font param){

@@ -5,6 +5,7 @@ public class Main implements Runnable{
     GUI gui = new GUI();
     GUI0 gui0 = new GUI0();
     GUI1 gui1 = new GUI1();
+    GUI2 gui2 = new GUI2();
     Info info = new Info();
 
 
@@ -37,12 +38,16 @@ public class Main implements Runnable{
 
                         //Kijelzőváltás
                         if(gui1.getRequestScreen() != 0) {
+                            gui1.frame.dispose();
                             info.setScreen(gui1.getRequestScreen());
+                            gui2.setFont(info.getFont());
+                            gui2.frame.setVisible(true);
                         }
                         break;
                     case 2:
-                       // gui.repaint();
-                        System.out.println(info.getScreen());
+                        gui2.frame.repaint();
+                        gui2.setZone(info.getPlayerZone());
+                        gui2.setNextObject(info.getNextObject());
                         break;
                     case 3:
                         System.out.println(info.getScreen());
