@@ -8,16 +8,30 @@ import java.util.*;
 import java.awt.*;
 
 
-public class GUI2 {
-    int spacing = 5;
-    BufferedImage red, orange, yellow, green, lblue, dblue, purple, logo, mit;
+public class GUI2 implements ActionListener{
+    private boolean exit=false;
     Images img = new Images();
     int[][] playerZone = new int[24][10];
     int mx=0;
     int my=0;
     JFrame frame = new JFrame();
+    private JLabel label1;
+    private JButton button1;
     private int nextObject;
     private Font font;
+    private int score;
+
+    public void setExit(boolean logic) {
+        exit=logic;
+    }
+
+    public boolean getExit() {
+        return exit;
+    }
+
+    public void setScore (int num) {
+        score=num;
+    }
 
 
     public void setFont(Font param){
@@ -33,16 +47,10 @@ public class GUI2 {
     }
 
     public GUI2() throws IOException {
-        //Blokkok megteremtése
-        for (int i=0; i<10; i++) {
-            for (int j = 0; j < 24; j++) {
-                playerZone[j][i]=(j%8);
-            }
-        }
 
         //Alapbeállítások
         frame.setTitle("Tetris");
-        frame.setSize(650, 750);
+        frame.setSize(400, 645);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBackground(Color.WHITE);
         frame.setVisible(false);
@@ -58,6 +66,22 @@ public class GUI2 {
         Click click = new Click();
         frame.addMouseListener(click);
 
+
+
+        label1 = new JLabel("Elért pontszám:");
+        label1.setBounds(270,170,300,15);
+        board.add(label1);
+
+        button1 = new JButton("Kilépés");
+        button1.setBounds(258,550,120,50);
+        button1.addActionListener(this);
+        board.add(button1);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        exit=true;
     }
 
 
@@ -72,38 +96,41 @@ public class GUI2 {
         Image purple = img.purple.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         Image n1 = img.n1.getScaledInstance(75, 110, Image.SCALE_DEFAULT);
         Image n2 = img.n2.getScaledInstance(100, 80, Image.SCALE_DEFAULT);
-        Image n3 = img.n3.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-        Image n4 = img.n4.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-        Image n5 = img.n5.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-        Image n6 = img.n6.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-        Image n7 = img.n7.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        Image n3 = img.n3.getScaledInstance(75, 75, Image.SCALE_DEFAULT);
+        Image n4 = img.n4.getScaledInstance(80, 120, Image.SCALE_DEFAULT);
+        Image n5 = img.n5.getScaledInstance(30, 90, Image.SCALE_DEFAULT);
+        Image n6 = img.n6.getScaledInstance(95, 80, Image.SCALE_DEFAULT);
+        Image n7 = img.n7.getScaledInstance(80, 70, Image.SCALE_DEFAULT);
+        Image bg = img.bg1.getScaledInstance(250, 600, Image.SCALE_DEFAULT);
         public void paintComponent(Graphics g) {
-                    g.setColor(Color.lightGray);
-                    g.fillRect(15,105,250,600);
+            g.drawImage(bg, 2, 5, this);
+                   // g.setColor(Color.lightGray);
+                    //g.fillRect(15,5,250,600);
                     g.setColor(Color.black);
                     g.setFont(font);
-                    g.drawString("Következő blokk:", 420, 50);
+                    g.drawString("Következő blokk:", 270, 20);
+                    g.drawString("" + score, 270, 200);
                     switch (nextObject) {
                         case 1:
-                            g.drawImage(n1, 430, 70, this);
+                            g.drawImage(n1, 280, 40, this);
                             break;
                         case 2:
-                            g.drawImage(n2, 422, 70, this);
+                            g.drawImage(n2, 272, 40, this);
                             break;
                         case 3:
-                            g.drawImage(n3, 430, 70, this);
+                            g.drawImage(n3, 280, 40, this);
                             break;
                         case 4:
-                            g.drawImage(n4, 430, 70, this);
+                            g.drawImage(n4, 280, 40, this);
                             break;
                         case 5:
-                            g.drawImage(n5, 430, 70, this);
+                            g.drawImage(n5, 303, 40, this);
                             break;
                         case 6:
-                            g.drawImage(n6, 430, 70, this);
+                            g.drawImage(n6, 273, 40, this);
                             break;
                         case 7:
-                            g.drawImage(n7, 430, 70, this);
+                            g.drawImage(n7, 280, 40, this);
                             break;
                     }
                     for (int i=0; i<10; i++) {
@@ -112,25 +139,25 @@ public class GUI2 {
                                 case 0:
                                     break;
                                 case 1:
-                                    g.drawImage(red, 15 + i *25, j *25 + 105, this);
+                                    g.drawImage(red, 2 + i *25, j *25 + 5, this);
                                     break;
                                 case 2:
-                                    g.drawImage(orange, 15 + i *25, j *25 + 105, this);
+                                    g.drawImage(orange, 2 + i *25, j *25 + 5, this);
                                     break;
                                 case 3:
-                                    g.drawImage(yellow, 15 + i *25, j *25 + 105, this);
+                                    g.drawImage(yellow, 2 + i *25, j *25 + 5, this);
                                     break;
                                 case 4:
-                                    g.drawImage(green, 15 + i *25, j *25 + 105, this);
+                                    g.drawImage(green, 2 + i *25, j *25 + 5, this);
                                     break;
                                 case 5:
-                                    g.drawImage(lblue, 15 + i *25, j *25 + 105, this);
+                                    g.drawImage(lblue, 2 + i *25, j *25 + 5, this);
                                     break;
                                 case 6:
-                                    g.drawImage(dblue, 15 + i *25, j *25 + 105, this);
+                                    g.drawImage(dblue, 2 + i *25, j *25 + 5, this);
                                     break;
                                 case 7:
-                                    g.drawImage(purple, 15 + i *25, j *25 + 105, this);
+                                    g.drawImage(purple, 2 + i *25, j *25 + 5, this);
                                     break;
                                 default:
                                     break;
@@ -147,10 +174,7 @@ public class GUI2 {
 
         @Override
         public void mouseMoved(MouseEvent e) {
-            System.out.println("Mozgott az Egér");
-            mx=e.getX();
-            my=e.getY();
-            System.out.println("x: " + mx + ", y: " + my);
+
         }
     }
 

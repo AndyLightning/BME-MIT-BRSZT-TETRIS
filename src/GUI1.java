@@ -25,6 +25,7 @@ public class GUI1 implements ActionListener {
     public int getRequestScreen() {
         return requestScreen;
     }
+    public void setRequestScreen(int num) {requestScreen=num;}
     public void setUser(String name) {
         user=name;
     }
@@ -77,7 +78,7 @@ public class GUI1 implements ActionListener {
         button3.addActionListener(this);
         board.add(button3);
 
-        label2 = new JLabel("<html>Készítették:<br/>Dudás András<br/>Hartung Júlia<br/>Kenyeres Gábor Norbert</html>");
+        label2 = new JLabel("<html>Készítették:<br/>Dudás András<br/>Hartung Júlia<br/>Kenyeres Norbert  Gábor</html>");
         label2.setBounds(8,640,300,70);
         board.add(label2);
 
@@ -104,10 +105,7 @@ public class GUI1 implements ActionListener {
 
         @Override
         public void mouseMoved(MouseEvent e) {
-            System.out.println("Mozgott az Egér");
-            mx=e.getX();
-            my=e.getY();
-            System.out.println("x: " + mx + ", y: " + my);
+
         }
     }
 
