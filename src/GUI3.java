@@ -19,8 +19,6 @@ public class GUI3 implements ActionListener{
     private String opponent;
     int[][] playerZone = new int[24][10];
     int[][] opponentZone = new int[24][10];
-    int mx=0;
-    int my=0;
     JFrame frame = new JFrame();
     private JLabel label1, label2, label3;
     private JButton button1;

@@ -9,6 +9,7 @@ import java.awt.*;
 
 
 public class GUI extends JFrame {
+    //Tesztgui, nem fontos, nincs példányosítva
     private int screen=2;
     public int getScreen() {
         return screen;
