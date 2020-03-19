@@ -8,12 +8,33 @@ import java.util.*;
 import java.awt.*;
 
 
-public class GUI4 {
+public class GUI4 implements ActionListener {
     int mx=0;
     int my=0;
+    boolean finished=false;
     JFrame frame = new JFrame();
     private JLabel label1, label2;
+    private JButton button1;
     private Font font;
+    private String[] legjobbak = new String[10];
+    private int[] legjobbPontok = new int[10];
+
+
+    public boolean getFinished() {
+        return finished;
+    }
+
+    public void resetFinished() {
+        finished=false;
+    }
+
+    public void setLegjobbak (String[] param) {
+        legjobbak=param;
+    }
+
+    public void setLegjobbPontok (int[] param) {
+        legjobbPontok=param;
+    }
 
 
 
@@ -27,7 +48,7 @@ public class GUI4 {
 
         //Alapbeállítások
         frame.setTitle("Dicsőségtábla");
-        frame.setSize(1000, 1000);
+        frame.setSize(340, 270);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBackground(Color.WHITE);
         frame.setVisible(false);
@@ -53,6 +74,15 @@ public class GUI4 {
         label2.setBounds(220,10,300,15);
         board.add(label2);
 
+        button1 = new JButton("Vissza a Főmenübe");
+        button1.setBounds(80,190,150,40);
+        button1.addActionListener(this);
+        board.add(button1);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        finished=true;
     }
 
 
@@ -61,7 +91,11 @@ public class GUI4 {
         public void paintComponent(Graphics g) {
             g.setColor(Color.black);
             g.setFont(font);
-            g.drawString("Következő blokk:", 270, 20);
+
+            for (int i=0; i<10; i++) {
+                g.drawString(legjobbak[i], 10, 40+i*15);
+                g.drawString("" + legjobbPontok[i], 220, 40+i*15);
+            }
         }
     }
 

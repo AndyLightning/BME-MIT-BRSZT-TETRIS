@@ -25,6 +25,7 @@ public class GUI1 implements ActionListener {
     public int getRequestScreen() {
         return requestScreen;
     }
+    public void setRequestScreen(int num) {requestScreen=num;}
     public void setUser(String name) {
         user=name;
     }

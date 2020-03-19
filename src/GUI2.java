@@ -8,16 +8,26 @@ import java.util.*;
 import java.awt.*;
 
 
-public class GUI2 {
+public class GUI2 implements ActionListener{
+    private boolean exit=false;
     Images img = new Images();
     int[][] playerZone = new int[24][10];
     int mx=0;
     int my=0;
     JFrame frame = new JFrame();
     private JLabel label1;
+    private JButton button1;
     private int nextObject;
     private Font font;
     private int score;
+
+    public void setExit(boolean logic) {
+        exit=logic;
+    }
+
+    public boolean getExit() {
+        return exit;
+    }
 
     public void setScore (int num) {
         score=num;
@@ -62,6 +72,16 @@ public class GUI2 {
         label1.setBounds(270,170,300,15);
         board.add(label1);
 
+        button1 = new JButton("Kilépés");
+        button1.setBounds(258,550,120,50);
+        button1.addActionListener(this);
+        board.add(button1);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        exit=true;
     }
 
 
