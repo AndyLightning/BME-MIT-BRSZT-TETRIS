@@ -2,7 +2,14 @@ import java.io.IOException;
 import java.util.TimerTask;
 
 public class Main implements Runnable{
-    GUI gui = new GUI();
+    //Változók, osztálypéldányok
+    //A felhasznált gui megnevezések megegyeznek a githubon jelöltekkel, de a rend kedvéért:
+    //0: Login
+    //1: Menu
+    //2: Single
+    //3: Multiplayer
+    //4: Highscore
+    //Az info osztály tartalmazza a legfontosabb információkat
     GUI0 gui0 = new GUI0();
     GUI1 gui1 = new GUI1();
     GUI2 gui2 = new GUI2();
@@ -32,7 +39,6 @@ public class Main implements Runnable{
                     playerZone[j][i]=(j%8);
                 }
             }
-            info.setPlayerZone(playerZone);
             legjobbak[0]="asd";
             legjobbak[1]="MIT";
             legjobbak[2]="Kovács Alajos Lajos László";
@@ -53,10 +59,13 @@ public class Main implements Runnable{
             legjobbPontok[7]=0;
             legjobbPontok[8]=999999;
             legjobbPontok[9]=0;
+
+            //Ezeknek a kezelését még meg kell oldani, ha a tesztkódot eltüntetjük
+            info.setPlayerZone(playerZone);
             info.setLegjobbak(legjobbak);
             info.setLegjobbPontok(legjobbPontok);
             info.setOpponentZone(playerZone);
-
+            //Idáig tart a tesztkód
 
             //Actually important kód
             gui1.setFont(info.getFont());
@@ -64,6 +73,8 @@ public class Main implements Runnable{
             gui3.setFont(info.getFont());
             gui4.setFont(info.getFont());
             while (true) {
+
+                //A screen alapján kiválasztja, melyik gui fusson
                 switch(info.getScreen()) {
                     case 0:
                         gui0.frame.repaint();
@@ -110,6 +121,7 @@ public class Main implements Runnable{
                         gui2.setZone(info.getPlayerZone());
                         gui2.setNextObject(info.getNextObject());
                         gui2.setScore(info.getScore());
+
                         //Kijelzőváltás
                         if(gui2.getExit()) {
                             gui2.setExit(false);
@@ -127,6 +139,7 @@ public class Main implements Runnable{
                         gui3.setNextObject(info.getNextObject());
                         gui3.setScore(info.getScore());
                         gui3.setOpponentScore(info.getOpponentScore());
+
                         //Kijelzőváltás
                         if(gui3.getExit()) {
                             gui3.setExit(false);

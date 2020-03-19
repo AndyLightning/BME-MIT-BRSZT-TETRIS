@@ -8,6 +8,8 @@ import java.util.*;
 import java.awt.*;
 
 public class Images{
+    //Képkezelő. Ezzel komolyan nem kell foglalkozni.
+
         BufferedImage red, orange, yellow, green, lblue, dblue, purple, iit, mit, khazy, n1, n2, n3, n4, n5, n6, n7, bg1, bg2;
 
         public Images() throws IOException {
