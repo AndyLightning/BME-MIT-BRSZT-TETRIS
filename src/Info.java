@@ -2,11 +2,11 @@ import java.awt.*;
 
 public class Info {
     private int screen=0;
-    private String user;
+    private String user="IIT=Best";
     private Font font = new Font("Dialog", Font.BOLD,12);
     private int[][] playerZone = new int[24][10];
     private int[][] opponentZone = new int[24][10];
-    private int nextObject=2;
+    private int nextObject=0;
 
     public void setScreen(int i) {
         screen=i;

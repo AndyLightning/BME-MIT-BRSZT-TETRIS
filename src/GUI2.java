@@ -72,11 +72,11 @@ public class GUI2 {
         Image purple = img.purple.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
         Image n1 = img.n1.getScaledInstance(75, 110, Image.SCALE_DEFAULT);
         Image n2 = img.n2.getScaledInstance(100, 80, Image.SCALE_DEFAULT);
-        Image n3 = img.n3.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-        Image n4 = img.n4.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-        Image n5 = img.n5.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-        Image n6 = img.n6.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
-        Image n7 = img.n7.getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+        Image n3 = img.n3.getScaledInstance(75, 75, Image.SCALE_DEFAULT);
+        Image n4 = img.n4.getScaledInstance(80, 120, Image.SCALE_DEFAULT);
+        Image n5 = img.n5.getScaledInstance(30, 90, Image.SCALE_DEFAULT);
+        Image n6 = img.n6.getScaledInstance(95, 80, Image.SCALE_DEFAULT);
+        Image n7 = img.n7.getScaledInstance(80, 70, Image.SCALE_DEFAULT);
         public void paintComponent(Graphics g) {
                     g.setColor(Color.lightGray);
                     g.fillRect(15,105,250,600);
@@ -97,10 +97,10 @@ public class GUI2 {
                             g.drawImage(n4, 430, 70, this);
                             break;
                         case 5:
-                            g.drawImage(n5, 430, 70, this);
+                            g.drawImage(n5, 453, 70, this);
                             break;
                         case 6:
-                            g.drawImage(n6, 430, 70, this);
+                            g.drawImage(n6, 423, 70, this);
                             break;
                         case 7:
                             g.drawImage(n7, 430, 70, this);
