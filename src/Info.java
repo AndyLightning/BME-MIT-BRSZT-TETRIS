@@ -12,6 +12,7 @@ public class Info {
     private int nextObject=0; //soron következő objektum
     private int score=0; //játékos aktuális pontja
     private int opponentScore=0; //ellenfél pontja
+    private int difficulty=1;
 
     //getterek és setterek
     //az itt megjelölteket és a tesztkódban kiemelteket kell majd használni a mainben, a többit már érdemben lekezeltem
@@ -73,5 +74,11 @@ public class Info {
     }
     public int[] getLegjobbPontok () {
         return legjobbPontok;
+    }
+    public void setDifficulty(int num) {
+        difficulty=num;
+    }
+    public int getDifficulty () {
+        return difficulty;
     }
 }

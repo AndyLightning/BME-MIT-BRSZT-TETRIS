@@ -12,10 +12,11 @@ public class GUI1 implements ActionListener {
     JFrame frame = new JFrame();
     Images img = new Images();
     private JTextField text;
-    private JButton button1, button2, button3;
+    private JButton button1, button2, button3, button4, button5, button6;
     private JLabel label1, label2;
     private String user;
     private Font font;
+    private int difficulty=1;
 
 
     public void setFont(Font param){
@@ -29,12 +30,15 @@ public class GUI1 implements ActionListener {
     public void setUser(String name) {
         user=name;
     }
+    public int getDifficulty () {
+        return difficulty;
+    }
 
 
     public GUI1() throws IOException {
         //Alapbeállítások
         frame.setTitle("Főmenü");
-        frame.setSize(650, 750);
+        frame.setSize(650, 770);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(false);
         frame.setResizable(false);
@@ -78,8 +82,24 @@ public class GUI1 implements ActionListener {
         button3.addActionListener(this);
         board.add(button3);
 
+        button4 = new JButton("Könnyű");
+        button4.setBounds(120,420,100,50);
+        button4.addActionListener(this);
+        board.add(button4);
+
+        button5 = new JButton("Normális");
+        button5.setBounds(270,420,100,50);
+        button5.addActionListener(this);
+        board.add(button5);
+
+
+        button6 = new JButton("Nehéz");
+        button6.setBounds(420,420,100,50);
+        button6.addActionListener(this);
+        board.add(button6);
+
         label2 = new JLabel("<html>Készítették:<br/>Dudás András<br/>Hartung Júlia<br/>Kenyeres Norbert  Gábor</html>");
-        label2.setBounds(8,640,300,70);
+        label2.setBounds(8,650,300,70);
         board.add(label2);
 
     }
@@ -148,6 +168,15 @@ public class GUI1 implements ActionListener {
                 break;
             case "Dicsőségtábla":
                 requestScreen=4;
+                break;
+            case "Könnyű":
+                difficulty=1;
+                break;
+            case "Normális":
+                difficulty=2;
+                break;
+            case "Nehéz":
+                difficulty=3;
                 break;
 
         }
