@@ -1,29 +1,29 @@
 import java.io.IOException;
 import java.util.TimerTask;
 
-public class Main implements Runnable{
-    //Változók, osztálypéldányok
-    //A felhasznált gui megnevezések megegyeznek a githubon jelöltekkel, de a rend kedvéért:
-    //0: Login
-    //1: Menu
-    //2: Single
-    //3: Multiplayer
-    //4: Highscore
-    //Az info osztály tartalmazza a legfontosabb információkat
-    GUI0 gui0 = new GUI0();
-    GUI1 gui1 = new GUI1();
-    GUI2 gui2 = new GUI2();
-    GUI3 gui3 = new GUI3();
-    GUI4 gui4 = new GUI4();
-    Info info = new Info();
-    String[] legjobbak = new String[10];
-    int[] legjobbPontok = new int[10];
-    int[][] playerZone = new int[24][10];
+    public class Main implements Runnable{
+        //Változók, osztálypéldányok
+        //A felhasznált gui megnevezések megegyeznek a githubon jelöltekkel, de a rend kedvéért:
+        //0: Login
+        //1: Menu
+        //2: Single
+        //3: Multiplayer
+        //4: Highscore
+        //Az info osztály tartalmazza a legfontosabb információkat
+        GUI0 gui0 = new GUI0();
+        GUI1 gui1 = new GUI1();
+        GUI2 gui2 = new GUI2();
+        GUI3 gui3 = new GUI3();
+        GUI4 gui4 = new GUI4();
+        Info info = new Info();
+        String[] legjobbak = new String[10];
+        int[] legjobbPontok = new int[10];
+        int[][] playerZone = new int[24][10];
 
 
 
 
-    public static void main(String[] args) throws IOException {
+        public static void main(String[] args) throws IOException {
 
         new Thread(new Main()).start();
     }
@@ -39,7 +39,8 @@ public class Main implements Runnable{
                     playerZone[j][i]=(j%8);
                 }
             }
-            legjobbak[0]="asd";
+            playerZone[3][4]=0;
+            legjobbak[0]=" asd";
             legjobbak[1]="MIT";
             legjobbak[2]="Kovács Alajos Lajos László";
             legjobbak[3]="BME";
@@ -74,6 +75,14 @@ public class Main implements Runnable{
             gui4.setFont(info.getFont());
             while (true) {
 
+                if(info.getScreen()==2) {
+
+                }
+
+                if(info.getScreen()==3) {
+
+                }
+                System.out.println("" + info.getDifficulty());
                 //A screen alapján kiválasztja, melyik gui fusson
                 switch(info.getScreen()) {
                     case 0:
@@ -91,7 +100,7 @@ public class Main implements Runnable{
                         break;
                     case 1:
                         gui1.frame.repaint();
-
+                        info.setDifficulty(gui1.getDifficulty());
                         //Kijelzőváltás
                         if(gui1.getRequestScreen() != 0) {
                             gui1.frame.dispose();
@@ -171,10 +180,12 @@ public class Main implements Runnable{
 
 
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(50); //Átírható, terhelés függvényében
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
+
             }
         }
 
