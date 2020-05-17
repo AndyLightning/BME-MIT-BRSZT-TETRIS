@@ -81,7 +81,7 @@ public class GUI3 implements ActionListener{
         frame.setBackground(Color.WHITE);
         frame.setVisible(false);
         frame.setResizable(false);
-
+        frame.setIconImage(img.mit);
         Board board = new Board();
         frame.setContentPane(board);
         board.setLayout(null);

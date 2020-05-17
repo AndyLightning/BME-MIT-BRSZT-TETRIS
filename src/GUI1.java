@@ -43,7 +43,7 @@ public class GUI1 implements ActionListener {
         frame.setVisible(false);
         frame.setResizable(false);
         frame.setBackground(Color.lightGray);
-        frame.setIconImage(img.khazy);
+        frame.setIconImage(img.mit);
 
         frame.setLayout(null);
 

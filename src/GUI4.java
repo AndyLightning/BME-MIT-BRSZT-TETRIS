@@ -11,6 +11,7 @@ import java.awt.*;
 public class GUI4 implements ActionListener {
     int mx=0;
     int my=0;
+    Images img = new Images();
     boolean finished=false;
     JFrame frame = new JFrame();
     private JLabel label1, label2;
@@ -53,7 +54,7 @@ public class GUI4 implements ActionListener {
         frame.setBackground(Color.WHITE);
         frame.setVisible(false);
         frame.setResizable(false);
-
+        frame.setIconImage(img.mit);
         Board board = new Board();
         frame.setContentPane(board);
         board.setLayout(null);

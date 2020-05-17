@@ -10,7 +10,7 @@ import java.awt.*;
 public class Images{
     //Képkezelő. Ezzel komolyan nem kell foglalkozni.
 
-        BufferedImage red, orange, yellow, green, lblue, dblue, purple, iit, mit, khazy, n1, n2, n3, n4, n5, n6, n7, bg1, bg2;
+        BufferedImage red, orange, yellow, green, lblue, dblue, purple, iit, mit, khazy, n1, n2, n3, n4, n5, n6, n7, bg1, bg2, cont;
 
         public Images() throws IOException {
             red = ImageIO.read(new File("img/Red.png"));
@@ -32,6 +32,7 @@ public class Images{
             n7 = ImageIO.read(new File("img/N7.png"));
             bg1 = ImageIO.read(new File("img/Background1.png"));
             bg2 = ImageIO.read(new File("img/Background2.png"));
+            cont = ImageIO.read(new File("img/cont.jpg"));
         }
 
 }

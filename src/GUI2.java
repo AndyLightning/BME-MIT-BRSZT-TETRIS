@@ -33,7 +33,6 @@ public class GUI2 implements ActionListener{
         score=num;
     }
 
-
     public void setFont(Font param){
         font=param;
     }
@@ -55,7 +54,7 @@ public class GUI2 implements ActionListener{
         frame.setBackground(Color.WHITE);
         frame.setVisible(false);
         frame.setResizable(false);
-
+        frame.setIconImage(img.mit);
         Board board = new Board();
         frame.setContentPane(board);
         board.setLayout(null);
